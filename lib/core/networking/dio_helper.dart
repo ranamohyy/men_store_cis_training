@@ -23,7 +23,14 @@ static postRequest({required String endPoint,required Map<String,dynamic>data})a
 }
 
 
-
+static getRequest({required String endPoint})async{
+  try {
+    Response response = await dio!.get(endPoint);
+    return response;
+  }catch(e){
+    rethrow;
+  }
+}
 
 
 
