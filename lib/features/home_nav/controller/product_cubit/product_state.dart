@@ -1,12 +1,18 @@
 part of 'product_cubit.dart';
 
-abstract class ProductState {}
+abstract class ProductStates {}
 
- class ProductInitial extends ProductState {}
- class ProductLoading extends ProductState {}
- class ProductSuccess extends ProductState {
+ class ProductInitial extends ProductStates {}
+ class ProductLoading extends ProductStates {}
+ class ProductSuccess extends ProductStates {
   List<ProductModel>model;
   ProductSuccess(this.model);
 
- }
- class ProductFailure extends ProductState {}
+}
+final class ProductFailure extends ProductStates {
+  final String errMsg;
+  ProductFailure(this.errMsg);
+
+
+
+}
