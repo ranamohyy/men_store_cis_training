@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:men_store_cis_training/core/helpers/app_colors.dart';
 import 'package:men_store_cis_training/core/helpers/app_text_styles.dart';
 class AppField extends StatelessWidget {
