@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:men_store_cis_training/core/helpers/app_colors.dart';
 import 'package:men_store_cis_training/core/helpers/app_text_styles.dart';
 class AppButtom extends StatelessWidget {
-   AppButtom({super.key,required this.onPressed,required this.text});
+   AppButtom({super.key,required this.onPressed, this.text,this.widget});
   void Function()? onPressed;
-  String text;
+  String ?text;
+  Widget?widget;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -17,7 +18,7 @@ class AppButtom extends StatelessWidget {
           backgroundColor: AppColors.primaryColor,
         ) ,
         onPressed: onPressed,
-        child: Text(text,style: AppTextStyles.kTextStyle14MediumWhite,).tr())
+        child:widget?? Text(text??"",style: AppTextStyles.kTextStyle14MediumWhite,))
 
     ;
   }
