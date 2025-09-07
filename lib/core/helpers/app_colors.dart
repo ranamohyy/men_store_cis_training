@@ -5,6 +5,7 @@ class AppColors{
   static const scaffoldBackGroundColor=Colors.white;
   static const borderFieldColor=Color(0xffE6E6E6);
   static const greyColor=Color(0xff999999);
+  static const boldGreyColor=Color(0xff808080);
 
 
 
