@@ -1,4 +1,5 @@
 import 'package:animated_snack_bar/animated_snack_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:men_store_cis_training/core/helpers/app_buttom.dart';
@@ -8,10 +9,11 @@ import 'package:men_store_cis_training/core/helpers/app_text_styles.dart';
 import 'package:men_store_cis_training/core/helpers/snack_bar.dart';
 import 'package:men_store_cis_training/features/auth/login/cubit.dart';
 import 'package:men_store_cis_training/features/auth/login/state.dart';
-import 'package:men_store_cis_training/features/screens/home.dart';
+import 'package:men_store_cis_training/features/home_nav/view.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -31,10 +33,10 @@ class LoginScreen extends StatelessWidget {
                   msg: "Login Success",
                   type: AnimatedSnackBarType.success,
                   context: context);
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomeScreen(),
+                    builder: (context) => HomeNavScreen(),
                   ));
             }
           },
@@ -50,35 +52,35 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    "Login to your account",
+                    "loginToYourAccount",
                     style: AppTextStyles.kHeadTextStyle32,
-                  ),
+                  ).tr(),
                   SizedBox(
                     height: 4,
                   ),
                   Text(
-                    "It’s great to see you again.",
+                  "welcome"  ,
                     style: AppTextStyles.kTextStyle16Grey,
-                  ),
+                  ).tr(),
                   SizedBox(
                     height: 24,
                   ),
                   Text(
-                    "User Name",
+                    "UserName",
                     style: AppTextStyles.kTextStyle16MediumBlack,
-                  ),
+                  ).tr(),
                   SizedBox(
                     height: 4,
                   ),
                   AppField(
-                    hintText: "Enter Your Name",
+                    hintText: "yourName".tr(),
                     controller: cubit.nameController,
                   ),
                   SizedBox(
                     height: 16,
                   ),
                   Text(
-                    "Password",
+                    "Password".tr(),
                     style: AppTextStyles.kTextStyle16MediumBlack,
                   ),
                   SizedBox(
@@ -96,16 +98,16 @@ class LoginScreen extends StatelessWidget {
                         Icons.visibility_outlined
                     )
                       ,color: Colors.grey,) ,
-                    hintText: "Enter your user password",
+                    hintText: "yourPassword".tr(),
                     controller: cubit.passwordController,
                   ),
                   SizedBox(
                     height: 55,
                   ),
                   AppButtom(
-                    text: "Login",
+                    text: "login".tr(),
                     onPressed: () => cubit.login(),
-                  )
+                  ),
                 ],
               ),
             );
