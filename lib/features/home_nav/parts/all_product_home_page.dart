@@ -18,25 +18,32 @@ class AllProductHomePage extends StatelessWidget {
                   mainAxisSpacing: 6,
                   crossAxisSpacing: 12),
               itemBuilder: (context, index) {
-                return Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: Image.network(state.model[index].image ?? ""),
-                      ),
-                      Text(
-                        state.model[index].title ?? "",
-                        style: AppTextStyles.kTextStyle16MediumBlack,
-                        maxLines: 1,
-                      ),
-                      Text(
-                        r"$" + state.model[index].price.toString(),
-                        style: AppTextStyles.kTextStyle16Grey,
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context,
+                    MaterialPageRoute(builder:
+                    (context) => ProductDetailsScreen(model: state.model[index]),));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: Image.network(state.model[index].image ?? ""),
+                        ),
+                        Text(
+                          state.model[index].title ?? "",
+                          style: AppTextStyles.kTextStyle16MediumBlack,
+                          maxLines: 1,
+                        ),
+                        Text(
+                          r"$" + state.model[index].price.toString(),
+                          style: AppTextStyles.kTextStyle16Grey,
+                          textAlign: TextAlign.start,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
