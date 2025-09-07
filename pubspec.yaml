@@ -36,6 +36,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   animated_snack_bar: ^0.4.0
   flutter_svg: ^2.2.0
+  flutter_secure_storage: ^9.2.4
+  lottie: ^3.3.1
+  easy_localization: ^3.0.8
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,8 @@ flutter:
 
   assets:
      - assets/images/
+     - assets/json/
+     - assets/translations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
