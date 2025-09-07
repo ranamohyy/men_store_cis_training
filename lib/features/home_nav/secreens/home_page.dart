@@ -4,6 +4,7 @@ import 'package:men_store_cis_training/core/helpers/app_colors.dart';
 import 'package:men_store_cis_training/core/helpers/app_text_styles.dart';
 import 'package:men_store_cis_training/features/home_nav/controller/category_cubit/category_cubit.dart';
 import 'package:men_store_cis_training/features/home_nav/controller/product_cubit/product_cubit.dart';
+import 'package:men_store_cis_training/features/product_details/view.dart';
 import '../../../core/helpers/app_loading.dart';
 part '../parts/all_categories.dart';
 part '../parts/all_product_home_page.dart';
