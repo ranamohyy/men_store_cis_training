@@ -31,6 +31,27 @@ getAllProducts()async{
 
 
 }
+updateCategoryProduct(categoryName) async {
+    try {
+      emit(ProductLoading());
+      final Response response = await DioHelper.getRequest(
+          endPoint: "${AppEndPoints.productCategories}$categoryName");
+
+      if (response.statusCode == 200) {
+        final list = List<ProductModel>.from(
+            (response.data as List).map((e) => ProductModel.fromJson(e)));
+
+        emit(ProductSuccess(list));
+      } else {
+        emit(ProductFailure(""));
+      }
+    } on DioException  {
+      emit(ProductFailure(""));
+    } catch (e) {
+      emit(ProductFailure("errMsg"));
+    }
+  }
+
 
 
 

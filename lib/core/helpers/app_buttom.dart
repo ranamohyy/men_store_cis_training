@@ -1,12 +1,13 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:men_store_cis_training/core/helpers/app_colors.dart';
 import 'package:men_store_cis_training/core/helpers/app_text_styles.dart';
 class AppButtom extends StatelessWidget {
-   AppButtom({super.key,required this.onPressed, this.text,this.widget});
+   AppButtom({super.key,required this.onPressed, this.text,this.widget,this.backgroundColor,this.textColor});
   void Function()? onPressed;
   String ?text;
   Widget?widget;
+  Color? backgroundColor;
+  Color? textColor;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -15,10 +16,10 @@ class AppButtom extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12)
           ),
-          backgroundColor: AppColors.primaryColor,
+          backgroundColor:backgroundColor?? AppColors.primaryColor,
         ) ,
         onPressed: onPressed,
-        child:widget?? Text(text??"",style: AppTextStyles.kTextStyle14MediumWhite,))
+        child:widget?? Text(text??"",style: AppTextStyles.kTextStyle14MediumWhite.copyWith(color:textColor??Colors.white ),))
 
     ;
   }

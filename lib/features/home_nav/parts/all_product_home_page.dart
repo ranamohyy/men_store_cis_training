@@ -1,9 +1,11 @@
 part of '../secreens/home_page.dart';
+
 class AllProductHomePage extends StatelessWidget {
   const AllProductHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return  BlocBuilder<ProductCubit, ProductStates>(
+    return BlocBuilder<ProductCubit, ProductStates>(
       builder: (context, state) {
         if (state is ProductLoading) {
           return AppLoading();
@@ -19,11 +21,16 @@ class AllProductHomePage extends StatelessWidget {
                   crossAxisSpacing: 12),
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     Navigator.push(context,
-                    MaterialPageRoute(builder:
-                    (context) => ProductDetailsScreen(model: state.model[index]),));
-                  },
+                        MaterialPageRoute(builder:
+                            (context) =>
+                             BlocProvider.value(
+                                value: CartCubit(),
+                              child: ProductDetailsScreen(
+                                  model: state.model[index]),
+                            ),));
+                    },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Column(
@@ -56,6 +63,5 @@ class AllProductHomePage extends StatelessWidget {
         }
       },
     );
-
   }
 }
